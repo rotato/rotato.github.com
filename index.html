@@ -25,14 +25,14 @@ function balance () {
     var href = "http://paranoidnews.org/wp-content/uploads/2010/05/UFO-Spiral-Canada-e1274895298802.png";
     var dur = "0.1s";
     var arr = /(?:dur=(.+)&)?href=(.+)/.exec(query);
-    if (arr[1]) {
-        dur = arr[1];
+    if (arr) {
+        if (arr[1]) {
+            dur = arr[1];
+        }
+        if (arr[2]) {
+            href = arr[2];
+        }
     }
-    console.log(arr[2]);
-    if (arr[2]) {
-        href = arr[2];
-    }
-    console.log(arr);
     i.attr('xlink:href', href);
     t.attr('dur', dur);
     $('body').css('background', '#C2E6EC');
